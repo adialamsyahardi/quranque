@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Al Quran dan Terjemahan</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta
+			name="description"
+			content="Al Qur'an dan Terjemahan Berbahasa Indonesia."
+		/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="theme-color" content="#15811d" />
+		<meta name="msapplication-TileColor" content="#409346" />
+		<meta name="msapplication-TileImage" content="./images/icons/icon-128x128.png" />
+		<meta name="mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta name="apple-mobile-web-app-title" content="Al Qur'an dan Terjemahan" />
+		<meta name="application-name" content="Al Qur'an dan Terjemahan" />
+		<link rel="icon" type="image/png" href="./images/icons/icon-72x72.png" sizes="72x72" />
+		<link rel="manifest" href="./manifest.json" />
+		<link rel="stylesheet" href="./css/styles.css" />
+	</head>
+
+	<body>
+		<div class="app app__layout">
+			<header>
+				<span class="header__icon">
+					<svg class="menu__icon no--select" width="24px" height="24px" viewBox="0 0 48 48" fill="#fff">
+						<path d="M6 36h36v-4H6v4zm0-10h36v-4H6v4zm0-14v4h36v-4H6z"></path>
+					</svg>
+				</span>
+
+				<span class="header__title no--select" style="font-size: 15px">Al Quran dan Terjemahan</span>
+				<a href="info.html" style="align-self: center;"><img src="/images/info.png" style="width: 24px; height: 24px;"></a>
+			</header>
+
+			<div class="menu">
+				<div class="menu__header" style="padding: 15px; font-size: 20px">Pilih Surah</div>
+				<ul class="menu__list" id="surah" style="padding-bottom: 56px;"></ul>
+			</div>
+			<div class="menu__overlay"></div>
+
+			<div class="app__content" style="padding-top: 0px">
+				<div id="surah_name" class="card__title" style="width: -webkit-fill-available; position: fixed">
+				</div>
+				<div class="add__card">
+					<ul id="ayat" style="margin-top: 15px"></ul>
+				</div>
+			</div>
+			<audio id="surah_audio" src="https://ia802609.us.archive.org/13/items/quraninindonesia/001AlFaatihah.mp3" preload="auto"/>
+		</div>
+
+		<!-- JS Files  -->
+		<script src="/js/jquery.min.js" charset="utf-8"></script>
+		<script src="/js/audiojs/audio.min.js"></script>
+		<script src="/js/menu.js" charset="utf-8"></script>
+		<script src="/js/main.js" charset="utf-8"></script>
+
+
+	</body>
+</html>
