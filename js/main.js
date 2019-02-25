@@ -11,28 +11,23 @@ $(document).ready(function(){
   var surahs = []
 
   function renderPage(data){
+    $.each(data, function(key, items){
+      if($.inArray(items.nomor, surahs) == -1){
+        surahs.push(items.nomor)
+        surahResults += "<li onclick='updateAyat(this.value)' value='"+items.nomor+"'><a>" +items.nomor+ ". " +items.nama+ "</a></li>"
+      }
+    })
+    $('#surah').html(surahResults)
+
     if(localStorage['nomorSaved'] == null){
       $.each(data, function(key, items){
         items.id = "Pilih Surat dari menu, klik icon toggle kiri atas."
         dataResults = "<li>"+items.id+" </li>"
-
-        if($.inArray(items.nomor, surahs) == -1){
-          surahs.push(items.nomor)
-          surahResults += "<li onclick='updateAyat(this.value)' value='"+items.nomor+"'><a>" +items.nomor+ ". " +items.nama+ "</a></li>"
-        }
       })
 
       $('#ayat').html(dataResults)
-      $('#surah').html(surahResults)
     }
     else {
-      $.each(data, function(key, items){
-        if($.inArray(items.nomor, surahs) == -1){
-          surahs.push(items.nomor)
-          surahResults += "<li onclick='updateAyat(this.value)' value='"+items.nomor+"'><a>" +items.nomor+ ". " +items.nama+ "</a></li>"
-        }
-      })
-      $('#surah').html(surahResults)
       updateAyat(localStorage['nomorSaved'])
     }
   }
@@ -86,7 +81,7 @@ function updateAyat(nomor){
 
     var surahNameResult = "<span>"+nomor+". "+data[nomor-1].nama+" ("+data[nomor-1].ayat+" ayat)</span>"
     var surahAudio1 = data[nomor-1].audio
-    var surahAudio = surahAudio1.replace('http', 'https')
+    var surahAudio = surahAudio1.replace('http', 'https') //to avoid mixed content on different security url
 
     $('#surah_name').html(surahNameResult)
     // document.getElementById("surah_audio").src = surahAudio
