@@ -82,10 +82,12 @@ function updateAyat(nomor){
     var surahNameResult = "<span>"+nomor+". "+data[nomor-1].nama+" ("+data[nomor-1].ayat+" ayat)</span>"
     var surahAudio1 = data[nomor-1].audio
     var surahAudio = surahAudio1.replace('http', 'https') //to avoid mixed content on different security url
+    var desc = "Quranque - "+ nomor +". "+data[nomor-1].nama+" ("+data[nomor-1].ayat+" ayat)"
 
     $('#surah_name').html(surahNameResult)
     // document.getElementById("surah_audio").src = surahAudio
     $('#surah_audio').attr('src', surahAudio)
+    $(document).prop('title', desc)
   })
 
   hideMenu()
