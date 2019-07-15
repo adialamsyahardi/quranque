@@ -2,7 +2,7 @@
   "name": "Quranque",
   "short_name": "Quranque",
   "theme_color": "#134917",
-  "background_color": "#15811d",
+  "background_color": "#1e9401",
   "display": "standalone",
   "Scope": "/",
   "start_url": "/index.html",
