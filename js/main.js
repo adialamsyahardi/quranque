@@ -14,12 +14,13 @@ $(document).ready(function(){
     $.each(data, function(key, items){
       if($.inArray(items.nomor, surahs) == -1){
         surahs.push(items.nomor)
-        surahResults += "<li onclick='updateAyat(this.value)' value='"+items.nomor+"'><a>" +items.nomor+ ". " +items.nama+ "</a></li>"
+        surahResults += "<li onclick='updateAyat(this.value, this.value)' value='"+items.nomor+"'><a>" +items.nomor+ ". " +items.nama+ "</a></li>"
       }
     })
     $('#surah').html(surahResults)
 
     if(localStorage['nomorSaved'] == null){
+      window.scrollTo(0,0)
       $.each(data, function(key, items){
         items.id = "Pilih Surat dari menu, klik icon toggle kiri atas."
         dataResults = "<li>"+items.id+" </li>"
@@ -28,9 +29,38 @@ $(document).ready(function(){
       $('#ayat').html(dataResults)
     }
     else {
-      updateAyat(localStorage['nomorSaved'])
+      document.body.style.height = '41720px'
+      updateAyat("old", localStorage['nomorSaved'])
+      // window.scrollTo(0, localStorage['scrollY'])
     }
+    window.addEventListener("scroll", function(event) {
+      localStorage['scrollY'] = this.scrollY
+    }, false);
   }
+
+  // modal tips
+   var tips = $('#tips, #tips-2');
+   if(localStorage['modalViewed'] == null){
+       setTimeout(function() {
+         tips.addClass('active');
+       }, 1000);
+       localStorage['modalViewed'] = 1
+   }
+   $('#tips-close').click(function(){
+       tips.removeClass('active');
+   });
+   // ---
+
+   // modal info
+    var info = $('#info, #info-2');
+    $('span#info').click(function(){
+      info.addClass('active');
+      console.log("clicked");
+    });
+    $('#info-close').click(function(){
+        info.removeClass('active');
+    });
+    // ---
 
   var networkDataReceived = false
 
@@ -58,12 +88,14 @@ $(document).ready(function(){
 })
 
 //on click and update data
-function updateAyat(nomor){
+function updateAyat(status, nomor){
   localStorage['nomorSaved'] = nomor
   var dataResults = ""
   var _newUrl = _newUrl
 
   _newUrl = "https://al-quran-8d642.firebaseio.com/surat/"+nomor+".json?print=pretty"
+
+  status == "old" ? window.scrollTo(0, localStorage['scrollY']) : window.scrollTo(0, 0)
 
   $.get(_newUrl, function(data){
     $.each(data, function(key, items){

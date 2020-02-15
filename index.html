@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html style="height: auto">
 	<head>
 		<meta charset="utf-8" />
 		<title id="judul">Quranque</title>
@@ -15,11 +15,60 @@
 		<meta name="apple-mobile-web-app-title" content="Al Qur'an dan Terjemahan" />
 		<meta name="application-name" content="Al Qur'an dan Terjemahan" />
 		<link rel="icon" type="image/png" href="./images/icons/icon-72x72.png" sizes="72x72" />
+		<link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 		<link rel="manifest" href="./manifest.json" />
+		<link rel="stylesheet" href="./css/style_modal.css" />
 		<link rel="stylesheet" href="./css/styles.css" />
+
 	</head>
 
-	<body>
+	<body style="height: auto">
+		<!-- modal tips -->
+		<div class="modal-overlay" id="tips">
+			<div class="modal" id="tips-2">
+				<a class="close-modal" id="tips-close">
+					<svg viewBox="0 0 20 20">
+						<path fill="#000000" d="M15.898,4.045c-0.271-0.272-0.713-0.272-0.986,0l-4.71,4.711L5.493,4.045c-0.272-0.272-0.714-0.272-0.986,0s-0.272,0.714,0,0.986l4.709,4.711l-4.71,4.711c-0.272,0.271-0.272,0.713,0,0.986c0.136,0.136,0.314,0.203,0.492,0.203c0.179,0,0.357-0.067,0.493-0.203l4.711-4.711l4.71,4.711c0.137,0.136,0.314,0.203,0.494,0.203c0.178,0,0.355-0.067,0.492-0.203c0.273-0.273,0.273-0.715,0-0.986l-4.711-4.711l4.711-4.711C16.172,4.759,16.172,4.317,15.898,4.045z"></path>
+					</svg>
+				</a><!-- close modal -->
+				<div class="modal-content">
+					<h1>Jadikan Quranque Mudah Dibuka</h1>
+					<h4>dengan <i>add to homescreen</i> dari browser Chrome</h4>
+					<hr>
+					<br>
+						<li> - Klik opsi (titik tiga) pada aplikasi Chrome</li>
+						<li> - Pilih <i>Add to Homescreen</i> (Tambahkan ke Layar Utama)</li>
+						<li> - Aplikasi dapat diakses dari layar utama</li>
+				</div><!-- content -->
+			</div>
+		</div>
+		<!-- modal tips -->
+
+		<!-- modal info -->
+		<div class="modal-overlay" id="info">
+			<div class="modal" id="info-2">
+				<a class="close-modal" id="info-close">
+					<svg viewBox="0 0 20 20">
+						<path fill="#000000" d="M15.898,4.045c-0.271-0.272-0.713-0.272-0.986,0l-4.71,4.711L5.493,4.045c-0.272-0.272-0.714-0.272-0.986,0s-0.272,0.714,0,0.986l4.709,4.711l-4.71,4.711c-0.272,0.271-0.272,0.713,0,0.986c0.136,0.136,0.314,0.203,0.492,0.203c0.179,0,0.357-0.067,0.493-0.203l4.711-4.711l4.71,4.711c0.137,0.136,0.314,0.203,0.494,0.203c0.178,0,0.355-0.067,0.492-0.203c0.273-0.273,0.273-0.715,0-0.986l-4.711-4.711l4.711-4.711C16.172,4.759,16.172,4.317,15.898,4.045z"></path>
+					</svg>
+				</a><!-- close modal -->
+				<div class="modal-content">
+					<p class="card__title">Quranque</p>
+					<p class="card__desc">Al Qur'an Terjemahan Berbahasa Indonesia Disertai Audio</p>
+					<p class="card__desc">Big Thanks to :</p>
+					<p class="card__temp"><b>Sumber API 	: </b> <br> <span>github.com/bachors/Al-Quran-ID-API</span></p>
+					<p class="card__temp"><b>Template   	: </b> <br><span>github.com/gokulkrishh/demo-progressive-web-app</span></p>
+					<p class="card__temp"><b>Audio Player : </b> <br><span>kolber.github.io/audiojs/ (audiojs)</span></p>
+					<br><br>
+					<p class="card__title">Hooman in Behind</p>
+					<p class="card__temp"><b>Twitter : </b> <br><span>@putrialutfi</span></p>
+					<p class="card__temp"><b>Github  : </b> <br><span>github.com/putrialutfi</span></p>
+				</div><!-- content -->
+			</div>
+		</div>
+		<!-- modal info -->
+
 		<div class="app app__layout">
 			<header>
 				<span class="header__icon">
@@ -29,7 +78,7 @@
 				</span>
 
 				<span class="header__title no--select" style="font-size: 15px">Al Quran dan Terjemahan</span>
-				<a href="info.html" style="align-self: center;"><img src="/images/info.png" style="width: 24px; height: 24px;"></a>
+				<span id="info" style="align-self: center;"><img src="/images/info.png" style="width: 24px; height: 24px;"></span>
 			</header>
 
 			<div class="menu">
@@ -56,7 +105,6 @@
 		<script src="/js/audiojs/audio.min.js"></script>
 		<script src="/js/menu.js" charset="utf-8"></script>
 		<script src="/js/main.js" charset="utf-8"></script>
-
 
 	</body>
 </html>
